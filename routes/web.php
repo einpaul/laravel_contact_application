@@ -32,3 +32,7 @@ Route::post('/contact', function () {
     echo "Body: ". $data['body'];
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
