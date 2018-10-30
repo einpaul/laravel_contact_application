@@ -11,6 +11,12 @@
 |
 */
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/thankyou', 'HomeController@thankyou')->name('thankyou');
+
+
 Route::get('/', function () {
     return view('pages.index');
 });
@@ -25,14 +31,11 @@ Route::get('/contact', function () {
 
 Route::post('/contact', function () {
 
-    $data = request()->all();
+//    $data = request()->all();
+//    echo "Email: ". $data['email']. '<br>';
+//    echo "Body: ". $data['body'];
 
-
-    echo "Email: ". $data['email']. '<br>';
-    echo "Body: ". $data['body'];
+    return redirect()->action('HomeController@thankyou');
 });
 
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
